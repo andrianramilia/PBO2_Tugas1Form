@@ -24,6 +24,24 @@ class MyFrame1 ( wx.Frame ):
 
 		sbSizer1 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"MyForm" ), wx.VERTICAL )
 
+		self.m_panel3 = wx.Panel( sbSizer1.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+		fgSizer3 = wx.FlexGridSizer( 0, 2, 0, 0 )
+		fgSizer3.SetFlexibleDirection( wx.BOTH )
+		fgSizer3.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+
+		self.m_staticText6 = wx.StaticText( self.m_panel3, wx.ID_ANY, u"HELLO WX", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText6.Wrap( -1 )
+
+		self.m_staticText6.SetFont( wx.Font( 28, wx.FONTFAMILY_SCRIPT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "Lucida Calligraphy" ) )
+
+		fgSizer3.Add( self.m_staticText6, 0, wx.ALL, 5 )
+
+
+		self.m_panel3.SetSizer( fgSizer3 )
+		self.m_panel3.Layout()
+		fgSizer3.Fit( self.m_panel3 )
+		sbSizer1.Add( self.m_panel3, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.ALL, 5 )
+
 		self.m_panel1 = wx.Panel( sbSizer1.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
 		self.m_panel1.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_INFOBK ) )
 
@@ -60,33 +78,7 @@ class MyFrame1 ( wx.Frame ):
 		self.m_panel1.SetSizer( fgSizer2 )
 		self.m_panel1.Layout()
 		fgSizer2.Fit( self.m_panel1 )
-		sbSizer1.Add( self.m_panel1, 1, wx.EXPAND |wx.ALL, 5 )
-
-		self.m_panel4 = wx.Panel( sbSizer1.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
-		fgSizer3 = wx.FlexGridSizer( 1, 5, 0, 0 )
-		fgSizer3.SetFlexibleDirection( wx.BOTH )
-		fgSizer3.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
-
-
-		fgSizer3.Add( ( 0, 0), 1, wx.EXPAND, 5 )
-
-		self.m_staticText11 = wx.StaticText( self.m_panel4, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 55,-1 ), 0 )
-		self.m_staticText11.Wrap( -1 )
-
-		fgSizer3.Add( self.m_staticText11, 0, wx.ALL, 5 )
-
-		self.m_staticText12 = wx.StaticText( self.m_panel4, wx.ID_ANY, u"HELLO WX", wx.DefaultPosition, wx.Size( 300,-1 ), 0 )
-		self.m_staticText12.Wrap( -1 )
-
-		self.m_staticText12.SetFont( wx.Font( 28, wx.FONTFAMILY_SCRIPT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "Lucida Calligraphy" ) )
-
-		fgSizer3.Add( self.m_staticText12, 0, wx.ALL, 5 )
-
-
-		self.m_panel4.SetSizer( fgSizer3 )
-		self.m_panel4.Layout()
-		fgSizer3.Fit( self.m_panel4 )
-		sbSizer1.Add( self.m_panel4, 1, wx.EXPAND |wx.ALL, 5 )
+		sbSizer1.Add( self.m_panel1, 1, wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
 
 		self.SetSizer( sbSizer1 )
